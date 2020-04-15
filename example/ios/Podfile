@@ -9,7 +9,8 @@ target 'RnKalturasExample' do
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'rn-kalturas', :path => '../..'
-  pod 'KalturaPlayerSDKStreamamg', :git => 'https://bitbucket.org/sukdev/kaltura-ios-sdk/src/master/', :branch => 'master'
+  # pod 'KalturaPlayerSDKStreamamg', :git => 'https://bitbucket.org/sukdev/kaltura-ios-sdk', :branch => 'master'
+  # pod 'KalturaPlayerSDK'
 
   # Enables Flipper.
   #

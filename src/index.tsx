@@ -6,13 +6,16 @@ import {
   Dimensions,
   Text,
   // Button,
-  UIManager,
-  findNodeHandle,
+  // UIManager,
+  // findNodeHandle,
+  requireNativeComponent,
 } from 'react-native';
-import { RNKalturaPlayerView } from './RNKalturaView';
+// import { RNKalturaPlayerView } from './RNKalturaView';
 
 const { ModuleWithEmitter } = NativeModules;
 const PlayerRef = createRef<any>();
+
+const Player = requireNativeComponent('RNKalturasPlayer');
 
 /** Player Event Message */
 type PlayerStateMessage =
@@ -79,40 +82,48 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
     });
   }
 
-  public componentWillUnmount() {
-    const EventEmitter = new NativeEventEmitter(ModuleWithEmitter);
-    if (this.PlayerState && this.PlayerError && this.PlayerFullscreen) {
-      EventEmitter.removeSubscription(this.PlayerState);
-      EventEmitter.removeSubscription(this.PlayerError);
-      EventEmitter.removeSubscription(this.PlayerFullscreen);
-    }
-  }
+  // public componentWillUnmount() {
+  //   const EventEmitter = new NativeEventEmitter(ModuleWithEmitter);
+  //   if (this.PlayerState && this.PlayerError && this.PlayerFullscreen) {
+  //     EventEmitter.removeSubscription(this.PlayerState);
+  //     EventEmitter.removeSubscription(this.PlayerError);
+  //     EventEmitter.removeSubscription(this.PlayerFullscreen);
+  //   }
+  // }
 
-  public printRef(): void {
-    UIManager.dispatchViewManagerCommand(
-      findNodeHandle(this.ref.current),
-      UIManager.getViewManagerConfig('RNKalturaView').Commands.play,
-      undefined
-    );
-  }
+  // public printRef(): void {
+  //   UIManager.dispatchViewManagerCommand(
+  //     findNodeHandle(this.ref.current),
+  //     UIManager.getViewManagerConfig('RNKalturaView').Commands.play,
+  //     undefined
+  //   );
+  // }
 
   render() {
-    const { height, width } = this.props;
+    // const { height, width } = this.props;
     return (
       <>
         <Text
-          // style={{ fontSize: 14, marginBottom: 20 }}
-          onPress={() => this.printRef()}
+        // style={{ fontSize: 14, marginBottom: 20 }}
+        // onPress={() =>  NativeModules.HelloWorld.ShowMessage("Awesome!its working!", 0.5)}
         >
           TEST TEST
         </Text>
-        <RNKalturaPlayerView
+        {/* <RNKalturaPlayerView
           ref={(ref) => (this.ref = ref)}
           style={{ height, width }}
-          // {/* @ts-ignore */}
           // ServerUrl="https://cdnapisec.kaltura.com"
           // PartnerId="47413073"
           // UiConfId="3286493"
+        /> */}
+
+        {/* @ts-ignore */}
+        <Player
+          // {/* @ts-ignore */}
+          ServerUrl="https://cdnapisec.kaltura.com"
+          PartnerId="47413073"
+          UiConfId="3286493"
+          style={{ flex: 1 }}
         />
       </>
     );

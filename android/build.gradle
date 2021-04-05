@@ -33,9 +33,9 @@ android {
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0"
-    
+
   }
-  
+
   buildTypes {
     release {
       minifyEnabled false
@@ -54,6 +54,10 @@ repositories {
   mavenCentral()
   jcenter()
   google()
+
+  maven {
+    url "https://api.bitbucket.org/2.0/repositories/sukdev/kaltura-android-sdk/src/releases"
+  }
 
   def found = false
   def defaultDir = null
@@ -127,4 +131,5 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'com.streamamg:playersdk:2.7.3'
 }

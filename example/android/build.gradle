@@ -31,6 +31,10 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
+        maven {
+            url "https://api.bitbucket.org/2.0/repositories/sukdev/kaltura-android-sdk/src/releases"
+        }
+
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }

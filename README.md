@@ -1,27 +1,42 @@
-# rn-kalturas
+# React Native Bridge for Kaltura's Native SDKs
 
-React Native bridge for Kalturas
 
-## Installation
+Installation
+```
+# Yarn
+yarn add https://github.com/knowhere-studio/rn-kalturas.git
 
-```sh
-npm install rn-kalturas
+# npm
+npm i https://github.com/knowhere-studio/rn-kalturas.git --save
 ```
 
-## Usage
+---
 
-```js
-import RnKalturas from "rn-kalturas";
+### Android
 
-// ...
+**Step 1:**Add the StreamAMG maven repository to the list of repositories in Project `build.gradle`
 
-const result = await RnKalturas.multiply(3, 7);
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            url "https://api.bitbucket.org/2.0/repositories/sukdev/kaltura-android-sdk/src/releases"
+        }
+    }
+}
 ```
 
-## Contributing
+**Step 2:** Add the dependency information in Module `/app/build.gradle`
+```
+implementation 'com.streamamg:playersdk:2.7.3'
+```
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+If you are not using AndroidX in your app, you should exclude the following module to avoid incompatibilities:
 
-## License
-
-MIT
+```
+implementation 'com.streamamg:playersdk:2.7.3', {
+    exclude group: 'androidx.core', module: 'core'
+    exclude group: 'androidx.media', module:'media'
+}
+```

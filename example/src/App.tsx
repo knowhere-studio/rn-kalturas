@@ -1,18 +1,16 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import RnKalturas from 'rn-kalturas';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import RNKalturaPlayer from 'rn-kalturas';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    RnKalturas.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <RNKalturaPlayer
+        height={200}
+        width={Dimensions.get('window').width}
+        event={(_e, m) => console.log(_e, m)}
+      />
     </View>
   );
 }

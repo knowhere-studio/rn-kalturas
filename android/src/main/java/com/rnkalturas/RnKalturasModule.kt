@@ -15,10 +15,8 @@ class RnKalturasModule(reactContext: ReactApplicationContext) : ReactContextBase
     // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
     fun multiply(a: Int, b: Int, promise: Promise) {
-    
-      promise.resolve(a * b)
-    
-    }
 
-    
+      promise.resolve(a * b)
+
+    }
 }

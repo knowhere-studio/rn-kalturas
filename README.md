@@ -40,3 +40,26 @@ implementation 'com.streamamg:playersdk:2.7.3', {
     exclude group: 'androidx.media', module:'media'
 }
 ```
+
+---
+
+# Usage
+
+```
+import RNKalturaPlayer from 'rn-kalturas';
+
+const Player = () => (
+    /**
+    *
+    * {width} video width (required)
+    * {height} video height (required)
+    * {event} event listener
+    */
+    <RNKalturaPlayer width={200} height={100}/>
+)
+```
+
+### Events
+1. PlayerState `message = 'loadedmetadata' | 'canplay' | 'play' | 'pause' | 'seeking' | 'seeked'`
+2. PlayerError
+3. PlayerFullscreen `message = true | false`

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Dimensions, StyleSheet, View } from 'react-native';
-import RNKalturaPlayer from 'rn-kalturas';
+import { Button, Dimensions, StyleSheet, View } from 'react-native';
+import RNKalturaPlayer, { RnKalturasController } from 'rn-kalturas';
 
 export default function App() {
   return (
@@ -11,6 +11,9 @@ export default function App() {
         width={Dimensions.get('window').width}
         event={(_e, m) => console.log(_e, m)}
       />
+
+      {/* <Button title="Pause" onPress={() => RnKalturasController.pause()}>PAUSE</Button>
+      <Button title="Play" onPress={() => RnKalturasController.play()}>PLAY</Button> */}
     </View>
   );
 }

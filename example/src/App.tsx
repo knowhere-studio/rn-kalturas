@@ -11,6 +11,9 @@ export default function App() {
         width={Dimensions.get('window').width}
         event={(_e, m) => console.log(_e, m)}
       />
+
+      {/* <Button title="Pause" onPress={() => RnKalturasController.pause()}>PAUSE</Button>
+      <Button title="Play" onPress={() => RnKalturasController.play()}>PLAY</Button> */}
     </View>
   );
 }

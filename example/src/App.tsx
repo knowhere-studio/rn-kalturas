@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Dimensions, StyleSheet, View } from 'react-native';
-import RNKalturaPlayer, { RnKalturasController } from 'rn-kalturas';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import RNKalturaPlayer from 'rn-kalturas';
 
 export default function App() {
   return (

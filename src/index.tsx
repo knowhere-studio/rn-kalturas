@@ -4,6 +4,10 @@ import {
   NativeModules,
   EmitterSubscription,
   Dimensions,
+  Text,
+  // Button,
+  UIManager,
+  findNodeHandle,
 } from 'react-native';
 import { RNKalturaPlayerView } from './RNKalturaView';
 
@@ -35,6 +39,8 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
   public PlayerState: EmitterSubscription | null = null;
   public PlayerError: EmitterSubscription | null = null;
   public PlayerFullscreen: EmitterSubscription | null = null;
+
+  public ref: any;
 
   public componentDidMount() {
     const { event, height, width } = this.props;
@@ -82,10 +88,39 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
     }
   }
 
+  public printRef(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig('RNKalturaView').Commands.play,
+      undefined
+    );
+  }
+
   render() {
     const { height, width } = this.props;
-    return <RNKalturaPlayerView ref={PlayerRef} style={{ height, width }} />;
+    return (
+      <>
+        <Text
+          // style={{ fontSize: 14, marginBottom: 20 }}
+          onPress={() => this.printRef()}
+        >
+          TEST TEST
+        </Text>
+        <RNKalturaPlayerView
+          ref={(ref) => (this.ref = ref)}
+          style={{ height, width }}
+          // {/* @ts-ignore */}
+          // ServerUrl="https://cdnapisec.kaltura.com"
+          // PartnerId="47413073"
+          // UiConfId="3286493"
+        />
+      </>
+    );
   }
 }
 
 export default RNKalturaPlayer;
+export const RnKalturasController: {
+  play: () => void;
+  pause: () => void;
+} = NativeModules.RnKalturas;

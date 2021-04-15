@@ -43,6 +43,13 @@ implementation 'com.streamamg:playersdk:2.7.3', {
 
 ---
 
+### iOS
+
+pod 'KalturaPlayerSDKStreamamg', :git => 'https://bitbucket.org/sukdev/kaltura-ios-sdk/src/master/', :branch => 'master'
+(auto installation - google-cast-sdk)
+
+---
+
 # Usage
 
 ```
@@ -63,3 +70,5 @@ const Player = () => (
 1. PlayerState `message = 'loadedmetadata' | 'canplay' | 'play' | 'pause' | 'seeking' | 'seeked'`
 2. PlayerError
 3. PlayerFullscreen `message = true | false`
+
+

@@ -45,9 +45,32 @@ implementation 'com.streamamg:playersdk:2.7.3', {
 
 ### iOS
 
-pod 'KalturaPlayerSDKStreamamg', :git => 'https://bitbucket.org/sukdev/kaltura-ios-sdk/src/master/', :branch => 'master'
-(auto installation - google-cast-sdk)
 
+**Step 1** Install KalturaPlayerSDKStreamamg. your Podfile should look like this:
+
+
+```
+
+pod 'KalturaPlayerSDKStreamamg', :git => 'https://bitbucket.org/sukdev/kaltura-ios-sdk/src/master/', :branch => 'master'
+# This will auto install google-cast-sdk
+```
+
+**Step 2** Open a terminal window and run:
+```
+cd ${project_root}/ios
+pod install
+```
+
+**Step 3** Next you need to go to the Target Build Settings and disable Bitcode:
+```
+Enable Bitcode -> No
+```
+
+**Step 4** Go to your Info.plist file and add a new dictionary named:
+
+```
+NSAppTransportSecurity
+```
 ---
 
 # Usage

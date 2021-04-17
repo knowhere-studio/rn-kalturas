@@ -1,19 +1,51 @@
-#import "RnKalturas.h"
+#import <React/RCTBridgeModule.h>
+#import <React/RCTViewManager.h>
 
-@implementation RnKalturas
+//@interface RCT_EXTERN_MODULE(HelloWorld, NSObject)
+//  RCT_EXTERN_METHOD(ShowMessage:(NSString *)message duration:(double *)duration)
+//@end
 
-RCT_EXPORT_MODULE()
+@interface RNKalturaView : RCTViewManager
+@end
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+@implementation RNKalturaView
+
+RCT_EXPORT_MODULE();
+
+@synthesize bridge = _bridge;
+
+- (UIView *)view {
+    return [[RNKalturasPlayer alloc] initWithBridge:self.bridge];
+}
+
+- (dispatch_queue_t)methodQueue {
+    return _bridge.uiManager.methodQueue;
+}
+
+RCT_EXPORT_VIEW_PROPERTY(ServerUrl, NSString);
+RCT_EXPORT_VIEW_PROPERTY(PartnerId, NSString);
+RCT_EXPORT_VIEW_PROPERTY(UiConfId, NSString);
+
+RCT_EXPORT_VIEW_PROPERTY(PlayerState, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(PlayerError, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(PlayerFullscreen, RCTDirectEventBlock);
+
+RCT_EXPORT_METHOD(init:(nonnull NSString *)reactTag)
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
+    [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSString *, UIView *> *viewRegistry) {
+      RNKalturasPlayer *player = (RNKalturasPlayer*)viewRegistry[reactTag];
 
-  resolve(result);
+        [player init];
+    }];
+}
+
+RCT_EXPORT_METHOD(play:reactTag)
+{
+//    [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSString *, UIView *> *viewRegistry) {
+//      RNKalturasPlayer *player = (RNKalturasPlayer*)viewRegistry[reactTag];
+//
+//        [player play];
+//    }];
 }
 
 @end

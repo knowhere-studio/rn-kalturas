@@ -4,6 +4,9 @@ import {
   NativeModules,
   EmitterSubscription,
   Dimensions,
+  UIManager,
+  findNodeHandle,
+  Platform,
 } from 'react-native';
 import { RNKalturaPlayerView } from './RNKalturaView';
 
@@ -35,6 +38,8 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
   public PlayerState: EmitterSubscription | null = null;
   public PlayerError: EmitterSubscription | null = null;
   public PlayerFullscreen: EmitterSubscription | null = null;
+
+  public ref: any;
 
   public componentDidMount() {
     const { event, height, width } = this.props;
@@ -82,9 +87,49 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
     }
   }
 
+  public play(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.play,
+      []
+    );
+  }
+
+  public pause(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.pause,
+      []
+    );
+  }
+
+  public toggleFullScreen(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.toggleFullScreen,
+      []
+    );
+  }
+
   render() {
     const { height, width } = this.props;
-    return <RNKalturaPlayerView ref={PlayerRef} style={{ height, width }} />;
+    return (
+      <>
+        <RNKalturaPlayerView
+          ref={(ref) => (this.ref = ref)}
+          style={{ height, width }}
+          ServerUrl="https://cdnapisec.kaltura.com"
+          PartnerId="47413073"
+          UiConfId="3286493"
+        />
+      </>
+    );
   }
 }
 

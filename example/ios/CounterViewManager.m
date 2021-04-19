@@ -1,8 +1,11 @@
-#import <React/RCTBridgeModule.h>
-#import <React/RCTViewManager.h>
-#import <React/RCTEventEmitter.h>
-#import <React/RCTUIManager.h>
+//
+//  CounterViewManager.m
+//  RnKalturasExample
+//
+//  Created by Sanjay Achar on 18/04/21.
+//
 
+#import "React/RCTViewManager.h"
 @interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)
 
 // Initial Props

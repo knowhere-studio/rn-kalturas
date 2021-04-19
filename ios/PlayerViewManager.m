@@ -1,9 +1,6 @@
-#import <React/RCTBridgeModule.h>
-#import <React/RCTViewManager.h>
-#import <React/RCTEventEmitter.h>
-#import <React/RCTUIManager.h>
+#import "React/RCTViewManager.h"
 
-@interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)
+@interface RCT_EXTERN_MODULE(PlayerViewManager, RCTViewManager)
 
 // Initial Props
 RCT_EXPORT_VIEW_PROPERTY(ServerUrl, NSString)

@@ -7,11 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* RnKalturas.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RnKalturas.m */; };
-		F4FF95D7245B92E800C19C63 /*  RnKalturas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  RnKalturas.swift */; };
-
+		30D51C98262DB0B70076FA31 /* libKALTURAPlayerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D51C8D262DB0AB0076FA31 /* libKALTURAPlayerSDK.a */; };
+		30D51C99262DB0C00076FA31 /* KALTURAPlayerSDKResources.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 30D51C8F262DB0AB0076FA31 /* KALTURAPlayerSDKResources.bundle */; };
+		30D51C9D262DB1D50076FA31 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D51C9C262DB1D50076FA31 /* Player.swift */; };
+		30D51CA1262DB1EC0076FA31 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D51CA0262DB1EC0076FA31 /* PlayerView.swift */; };
+		30D51CA4262DB20E0076FA31 /* PlayerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D51CA3262DB20E0076FA31 /* PlayerViewManager.swift */; };
+		30D51CA6262DB2360076FA31 /* RnKalturas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* RnKalturas.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30D51C8C262DB0AB0076FA31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BFFFA727182F9E31005B3B24;
+			remoteInfo = KALTURAPlayerSDK;
+		};
+		30D51C8E262DB0AB0076FA31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B372892E1A8787D00076DD33;
+			remoteInfo = KALTURAPlayerSDKResources;
+		};
+		30D51C95262DB0B10076FA31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BFFFA726182F9E31005B3B24;
+			remoteInfo = KALTURAPlayerSDK;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -20,6 +46,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				30D51C99262DB0C00076FA31 /* KALTURAPlayerSDKResources.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -27,11 +54,14 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRnKalturas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRnKalturas.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KALTURAPlayerSDK.xcodeproj; path = "../../kaltura-ios-sdk/KALTURAPlayerSDK.xcodeproj"; sourceTree = "<group>"; };
+		30D51C9A262DB0E40076FA31 /* RnKalturas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RnKalturas-Bridging-Header.h"; sourceTree = "<group>"; };
+		30D51C9C262DB1D50076FA31 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		30D51CA0262DB1EC0076FA31 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		30D51CA3262DB20E0076FA31 /* PlayerViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewManager.swift; sourceTree = "<group>"; };
+		30D51CA7262DB2660076FA31 /* RnKalturas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RnKalturas.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RnKalturas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RnKalturas.m; sourceTree = "<group>"; };
-		F4FF95D5245B92E700C19C63 /* RnKalturas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RnKalturas-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* RnKalturas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RnKalturas.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D51C98262DB0B70076FA31 /* libKALTURAPlayerSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,15 +84,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		30D51C86262DB0AA0076FA31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30D51C8D262DB0AB0076FA31 /* libKALTURAPlayerSDK.a */,
+				30D51C8F262DB0AB0076FA31 /* KALTURAPlayerSDKResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30D51C97262DB0B70076FA31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
+				30D51CA7262DB2660076FA31 /* RnKalturas.h */,
+				30D51CA3262DB20E0076FA31 /* PlayerViewManager.swift */,
+				30D51CA0262DB1EC0076FA31 /* PlayerView.swift */,
+				30D51C9C262DB1D50076FA31 /* Player.swift */,
+				30D51C9A262DB0E40076FA31 /* RnKalturas-Bridging-Header.h */,
+				30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */,
 				F4FF95D6245B92E800C19C63 /* RnKalturas.swift */,
 				B3E7B5891CC2AC0600A0062D /* RnKalturas.m */,
-				F4FF95D5245B92E700C19C63 /* RnKalturas-Bridging-Header.h */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
+				30D51C97262DB0B70076FA31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +130,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				30D51C96262DB0B10076FA31 /* PBXTargetDependency */,
 			);
 			name = RnKalturas;
 			productName = RCTDataManager;
@@ -110,6 +162,12 @@
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 30D51C86262DB0AA0076FA31 /* Products */;
+					ProjectRef = 30D51C85262DB0AA0076FA31 /* KALTURAPlayerSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RnKalturas */,
@@ -117,19 +175,44 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		30D51C8D262DB0AB0076FA31 /* libKALTURAPlayerSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKALTURAPlayerSDK.a;
+			remoteRef = 30D51C8C262DB0AB0076FA31 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		30D51C8F262DB0AB0076FA31 /* KALTURAPlayerSDKResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KALTURAPlayerSDKResources.bundle;
+			remoteRef = 30D51C8E262DB0AB0076FA31 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				F4FF95D7245B92E800C19C63 /* RnKalturas.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* RnKalturas.m in Sources */,
-
+				30D51CA1262DB1EC0076FA31 /* PlayerView.swift in Sources */,
+				30D51CA4262DB20E0076FA31 /* PlayerViewManager.swift in Sources */,
+				30D51CA6262DB2360076FA31 /* RnKalturas.swift in Sources */,
+				30D51C9D262DB1D50076FA31 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30D51C96262DB0B10076FA31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KALTURAPlayerSDK;
+			targetProxy = 30D51C95262DB0B10076FA31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		58B511ED1A9E6C8500147676 /* Debug */ = {
@@ -238,11 +321,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RnKalturas;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "RnKalturas-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
@@ -259,10 +340,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RnKalturas;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "RnKalturas-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};

@@ -3,7 +3,7 @@
 #import <React/RCTEventEmitter.h>
 #import <React/RCTUIManager.h>
 
-@interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)
+@interface RCT_EXTERN_MODULE(PlayerViewManager, RCTViewManager)
 
 // Initial Props
 RCT_EXPORT_VIEW_PROPERTY(ServerUrl, NSString)

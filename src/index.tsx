@@ -4,10 +4,9 @@ import {
   NativeModules,
   EmitterSubscription,
   Dimensions,
-  Text,
-  // Button,
   UIManager,
   findNodeHandle,
+  Platform,
 } from 'react-native';
 import { RNKalturaPlayerView } from './RNKalturaView';
 
@@ -88,11 +87,33 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
     }
   }
 
-  public printRef(): void {
+  public play(): void {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this.ref.current),
-      UIManager.getViewManagerConfig('RNKalturaView').Commands.play,
-      undefined
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.play,
+      []
+    );
+  }
+
+  public pause(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.pause,
+      []
+    );
+  }
+
+  public toggleFullScreen(): void {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.ref.current),
+      UIManager.getViewManagerConfig(
+        Platform.OS === 'ios' ? 'PlayerView' : 'RNKalturaView'
+      ).Commands.toggleFullScreen,
+      []
     );
   }
 
@@ -100,19 +121,12 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
     const { height, width } = this.props;
     return (
       <>
-        <Text
-          // style={{ fontSize: 14, marginBottom: 20 }}
-          onPress={() => this.printRef()}
-        >
-          TEST TEST
-        </Text>
         <RNKalturaPlayerView
           ref={(ref) => (this.ref = ref)}
           style={{ height, width }}
-          // {/* @ts-ignore */}
-          // ServerUrl="https://cdnapisec.kaltura.com"
-          // PartnerId="47413073"
-          // UiConfId="3286493"
+          ServerUrl="https://cdnapisec.kaltura.com"
+          PartnerId="47413073"
+          UiConfId="3286493"
         />
       </>
     );
@@ -120,7 +134,3 @@ class RNKalturaPlayer extends React.PureComponent<Props, State> {
 }
 
 export default RNKalturaPlayer;
-export const RnKalturasController: {
-  play: () => void;
-  pause: () => void;
-} = NativeModules.RnKalturas;
